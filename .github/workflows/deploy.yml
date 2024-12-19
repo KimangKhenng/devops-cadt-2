@@ -8,9 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: SSH remote to Contabo VPS
-        env:
-          CONTABO_KEY: ${{ secrets.CONTAO_KEY }}
-        run: |
-          ssh -p 1308 -i $CONTABO_KEY root@84.247.173.20
-          pwd
-          whoami
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: 84.247.173.20
+          username: root
+          key: ${{ secrets.CONTAO_KEY }}
+          port: 1308
+          script: |
+            whomai
+            pwd
