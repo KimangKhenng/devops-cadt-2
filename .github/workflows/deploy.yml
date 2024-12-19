@@ -15,5 +15,7 @@ jobs:
           key: ${{ secrets.CONTAO_KEY }}
           port: 1308
           script: |
-            whomai
-            pwd
+            cd devops-cadt-2
+            git pull
+            pm2 reload devops-server
+            pm2 status
