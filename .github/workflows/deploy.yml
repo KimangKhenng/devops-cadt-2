@@ -1,0 +1,16 @@
+name: Automate Re-deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH remote to Contabo VPS
+        env:
+          CONTABO_KEY: ${{ secrets.CONTABO_KEY }}
+        run: |
+          ssh -p 1308 -i $CONTABO_KEY root@84.247.173.20
+          pwd
+          whoami
