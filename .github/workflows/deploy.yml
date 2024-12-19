@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: SSH remote to Contabo VPS
         env:
-          CONTABO_KEY: ${{ secrets.CONTABO_KEY }}
+          CONTABO_KEY: ${{ secrets.CONTAO_KEY }}
         run: |
           ssh -p 1308 -i $CONTABO_KEY root@84.247.173.20
           pwd
