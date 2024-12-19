@@ -17,5 +17,6 @@ jobs:
           script: |
             cd devops-cadt-2
             git pull
+            . ~/.nvm/nvm.sh
             pm2 reload devops-server
             pm2 status
